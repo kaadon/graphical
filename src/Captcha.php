@@ -72,7 +72,7 @@ class Captcha
             }
         }
         $key = md5(uniqid(mt_rand(), true));
-        Cache::set($key, $identical,180);
+        Cache::set($key, $identical, 180);
         $verify['verify_id']  = $key;
         $verify['verify_src'] = $imageArray;
         return $verify;
@@ -81,12 +81,11 @@ class Captcha
     public function check(string $verify_id, array $md5Hash): bool
     {
         $hashArray = Cache::get($verify_id);
-        var_dump($hashArray);
         if (empty($hashArray)) {
             Cache::delete($verify_id);
             throw new Exception("The verification code has expired");
         }
-        if (count($md5Hash) < 1) {
+        if (count($md5Hash) !== count($hashArray)) {
             Cache::delete($verify_id);
             throw new Exception("Data does not exist");
         }
