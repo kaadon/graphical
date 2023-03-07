@@ -14,10 +14,8 @@
 
 
 namespace Kaadon;
-
-use Kaadon\Graphical\Exception;
-use Kaadon\Graphical\Exception as ImageException;
-use Kaadon\Graphical\Gif\Gif;
+use Kaadon\graphical\Exception as ImageException;
+use Kaadon\graphical\gif\Gif;
 
 class Graphical
 {
@@ -146,7 +144,7 @@ class Graphical
             // 注意质量越高体积越小，这与jpg是相反的，为了统一
             imagepng($this->im, $pathname, (9 - min((int) ($quality / 10), 9)));
         }else{
-            throw new Exception("Only png/jpg is supported");
+            throw new ImageException("Only png/jpg is supported");
         }
         $img_data = $imagemine . base64_encode(file_get_contents($pathname));
         ob_get_clean();

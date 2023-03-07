@@ -8,7 +8,8 @@
 // +----------------------------------------------------------------------
 // | Author: yunwuxin <448901948@qq.com>
 // +----------------------------------------------------------------------
-namespace Kaadon\Graphical\Gif;
+namespace Kaadon\graphical\gif;
+
 
 
 class Encoder

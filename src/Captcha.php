@@ -2,7 +2,7 @@
 
 namespace Kaadon;
 
-use Kaadon\Graphical\Exception;
+use Kaadon\graphical\Exception as ImageException;
 use think\facade\Cache;
 
 class Captcha
@@ -83,16 +83,16 @@ class Captcha
         $hashArray = Cache::get($verify_id);
         if (empty($hashArray)) {
             Cache::delete($verify_id);
-            throw new Exception("The verification code has expired");
+            throw new ImageException("The verification code has expired");
         }
         if (count($md5Hash) !== count($hashArray)) {
             Cache::delete($verify_id);
-            throw new Exception("Data does not exist");
+            throw new ImageException("Data does not exist");
         }
         foreach ($md5Hash as $item) {
             if (!in_array($item, $hashArray)) {
                 Cache::delete($verify_id);
-                throw new Exception("Verification code error");
+                throw new ImageException("Verification code error");
             }
         }
         Cache::delete($verify_id);
