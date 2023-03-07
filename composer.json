@@ -1,0 +1,25 @@
+{
+    "name": "kaadon/graphical",
+    "description": "The ThinkPHP6 Image Package",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "kaadon",
+            "email": "kaadon.com@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-gd": "*"
+    },
+    "require-dev": {
+        "topthink/framework": "^6.1"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "autoload": {
+        "psr-4": {
+            "think\\": "src"
+        }
+    }
+}
