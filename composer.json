@@ -11,9 +11,6 @@
     "require": {
         "ext-gd": "*"
     },
-    "require-dev": {
-        "topthink/framework": "^6.1"
-    },
     "config": {
         "preferred-install": "dist"
     },
